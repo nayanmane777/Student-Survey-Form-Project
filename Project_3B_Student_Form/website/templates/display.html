@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display</title>
+    <style>
+        body {
+            background-color: lightblue;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            border: 1px solid black;
+            text-align: left;
+        }
+        .button {
+            padding: 10px 20px;
+            background-color: black;
+            color: white;
+            text-decoration: none;
+            display: inline-block;
+            margin: 10px 0;
+        }
+        .red {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Student Data</h1>
+        <p>Name: {{ data.first_name }} {{ data.last_name }}</p>
+        <p>Standard: {{ data.standard }}</p>
+        <p>School: {{ data.school }}</p>
+        <p>Contact No.: {{ data.contact_no }}</p>
+        <p>Hindi: {{ data.hindi }}</p>
+        <p>Mathematics: {{ data.math }}</p>
+        <p>Science: {{ data.science }}</p>
+        <p>History: {{ data.history }}</p>
+        <p>English: {{ data.english }}</p>
+        <p>Total Marks: {{ total_marks }}</p>
+        <p>Percentage: <span class="{{ 'red' if percentage < 35 else '' }}">{{ percentage }}%</span></p>
+        <p>Status: {{ 'Failed' if percentage < 35 else 'Passed' }}</p>
+        <a href="{{ url_for('auth.logout') }}" class="button">Logout</a>
+        <a href="{{ url_for('views.form') }}" class="button">Update</a>
+    </div>
+</body>
+</html>
